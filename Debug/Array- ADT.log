@@ -1,0 +1,6 @@
+﻿  Array- ADT.cpp
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(112,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(133,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(151): warning C4715: 'Array::RBinarySearch': not all control paths return a value
+  Array- ADT.vcxproj -> C:\Users\anmol\source\repos\Array- ADT\Debug\Array- ADT.exe
