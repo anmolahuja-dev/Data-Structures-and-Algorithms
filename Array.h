@@ -158,9 +158,13 @@ public:
 			return -1;
 	}
 	void setElement(int index, int x) {
-		
+		if (index >= 0 && index < length) {
 			A[index] = x;
 			cout << "\nElement at " << index << " is set to : " << x << endl;
+		}
+		else {
+			cout << "\nInvalid Index" << endl;
+		}
 		
 	}
 
@@ -273,27 +277,29 @@ public:
 		cout << "\nArranged the Elements" << endl;
 		display();
 	}
+
+	//Needs fix
 	Array Merge(Array& B) {
-		Array C(length + B.length);
-		C.length = length + B.length;
+		Array *C= new Array(length + B.length);
 		int i{ 0 }, j{ 0 }, k{0};
 
 		while (i < length && j < B.length)
 		{
 			if (A[i] < B.getElement(j)) {
-				C.setElement(k++,A[i++]);
+				C->A[k++]=A[i++];
 			}
 			else {
-				C.setElement(k++, B.getElement(j++));
+				C->A[k++]= B.A[j++];
 			}
 		}
 		for (; i < length; i++) {
-				C.setElement(k++, A[i]);
+				C->A[k++]= A[i];
 		}
 		for (; j < B.length; j++) {
-				C.setElement(k++, B.getElement(j));
+				C->A[k++]= B.A[j];
 		}
-		return C;
+		C->length = length + B.length;
+		return *C;
 
 	}
 
