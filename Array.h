@@ -278,7 +278,6 @@ public:
 		display();
 	}
 
-	//Needs fix
 	Array Merge(Array& B) {
 		Array *C= new Array(length + B.length);
 		int i{ 0 }, j{ 0 }, k{0};
@@ -299,6 +298,82 @@ public:
 				C->A[k++]= B.A[j];
 		}
 		C->length = length + B.length;
+		return *C;
+
+	}
+
+	Array Union(Array& B) {
+		Array* C = new Array(length + B.length);
+		int i{ 0 }, j{ 0 }, k{ 0 };
+
+		while (i < length && j < B.length)
+		{
+			if (A[i] < B.getElement(j)) {
+				C->A[k++] = A[i++];
+			}
+			else if (A[i] > B.getElement(j)) {
+				C->A[k++] = B.A[j++];
+			}
+			else {
+				C->A[k++] = A[i++];
+				j++;
+			}
+		}
+		for (; i < length; i++) {
+			C->A[k++] = A[i];
+		}
+		for (; j < B.length; j++) {
+			C->A[k++] = B.A[j];
+		}
+		C->length = k;
+		return *C;
+
+	}
+	Array Intersection(Array& B) {
+		Array* C = new Array(length + B.length);
+		int i{ 0 }, j{ 0 }, k{ 0 };
+
+		while (i < length && j < B.length)
+		{
+			if (A[i] < B.getElement(j)) {
+				i++;
+			}
+			else if (A[i] > B.getElement(j)) {
+				j++;
+			}
+			else {
+				C->A[k++] = A[i++];
+				j++;
+			}
+		}
+		
+		C->length = k;
+		return *C;
+
+	}
+
+	Array Deletion(Array& B) {
+		Array* C = new Array(length + B.length);
+		int i{ 0 }, j{ 0 }, k{ 0 };
+
+		while (i < length && j < B.length)
+		{
+			if (A[i] < B.getElement(j)) {
+				C->A[k++]=A[i++];
+				
+			}
+			else if (A[i] > B.getElement(j)) {
+				j++;
+			}
+			else {
+				i++;
+				j++;
+			}
+		}
+		for (; i < length; i++) {
+			C->A[k++] = A[i];
+		}
+		C->length = k;
 		return *C;
 
 	}

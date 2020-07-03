@@ -2,6 +2,11 @@
 #include "Array.h";
 using namespace std;
 
+struct Choice {
+	int mainCh{ 0 };
+	int subCh{ 0 };
+};
+Choice SetMenu(Choice c);
 int subMenu();
 void MainMenu() {
 	int n;
@@ -25,6 +30,7 @@ void MainMenu() {
 		cout << " [9] - Reverse, Left Rotate and Right rotate" << endl;
 		cout << " [10] - Check for Sorted Array,Insert Element in Sorted order and arranging elements" << endl;
 		cout << " [11] - Merge a new array to the existing array" << endl;
+		cout << " [12] - Set Operations" << endl;
 		cout << " [0]- Quit the program" << endl;
 		cout << " \nYour option : ";
 		cin >> ch;
@@ -148,11 +154,51 @@ void MainMenu() {
 			arrB.create();
 			Array C=arr.Merge(arrB);
 			C.display();
-		
+		}
+		if (ch == 12) {
+
+			int n;
+			cout << "\nEnter the size of the Array B : ";
+			cin >> n;
+			Array arrB(n);
+			arrB.create();
+
+			Choice ch;
+			ch=SetMenu(ch);
+
+			if (ch.mainCh == 1) {
+				if (ch.subCh == 1) {
+					Array C = arr.Union(arrB);
+					C.display();
+				}
+				else if (ch.subCh == 2) {
+					Array C = arr.Intersection(arrB);
+					C.display();
+				}
+				else if (ch.subCh == 3) {
+					Array C = arr.Deletion(arrB);
+					C.display();
+				}
+			}
 		}
 	} while (ch != 0);
 }
+Choice SetMenu(Choice c) {
+	cout << "\nEnter Your Array Type : "<<endl;
+	cout << "[1] Sorted Array" << endl;
+	cout << "[2] Unsorted Array" << endl;
+	cout << "\nEnter your choice : " ;
+	cin >> c.mainCh;
 
+	cout << "\nEnter the Set operation, you want to perform on this array" << endl;
+	cout << " [1]- Union Operation" << endl;
+	cout << " [2]- Intersection Operation" << endl;
+	cout << " [3]- Difference Operation" << endl;
+	cout << "\nEnter your choice : ";
+	cin >> c.subCh;
+	return (c);
+
+}
 int subMenu() {
 	cout << "\n Select the operation, You want to perform" << endl;
 	cout << " [1] - Get an Element" << endl;
