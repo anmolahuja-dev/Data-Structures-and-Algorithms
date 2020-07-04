@@ -180,6 +180,20 @@ void MainMenu() {
 					C.display();
 				}
 			}
+			if (ch.mainCh == 2) {
+				if (ch.subCh == 1) {
+					Array C = arr.usUnion(arrB);
+					C.display();
+				}
+				else if (ch.subCh == 2) {
+					Array C = arr.usIntersection(arrB);
+					C.display();
+				}
+				else if (ch.subCh == 3) {
+					Array C = arr.usDeletion(arrB);
+					C.display();
+				}
+			}
 		}
 	} while (ch != 0);
 }

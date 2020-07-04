@@ -15,10 +15,15 @@ public:
 	void create() {
 		cout << "Enter the number of elements, you want to enter : ";
 		cin >> length;
-		cout << "Enter " << length << " element : ";
-		for (int i = 0; i < length; i++) {
-			cout << "Enter Element [" << i + 1 << "] : ";
-			cin >> A[i];
+		if (length <= size) {
+			cout << "Enter " << length << " element : " << endl;
+			for (int i = 0; i < length; i++) {
+				cout << "Enter Element [" << i + 1 << "] : ";
+				cin >> A[i];
+			}
+		}
+		else {
+			cout << "\nLength Entered is greater than the size of the Array!" << endl;
 		}
 	}
 	void display() {
@@ -376,6 +381,63 @@ public:
 		C->length = k;
 		return *C;
 
+	}
+
+	Array usUnion(Array &B) {
+		Array* C = new Array(length + B.length);
+		int i, j, k{ 0 },flag=1;
+		
+		for (i = 0; i < length; i++) {
+			C->A[k++] = A[i];
+		}
+		
+		for (j = 0; j < B.length; j++) {
+			flag = 1;
+			for (int i = 0; i < length; i++) {
+				if (C->A[i] == B.A[j]) {
+					flag = 0;
+				}
+			}
+				if (flag == 1) {
+					C->A[k++] = B.A[j];
+				}
+			}
+		C->length = k;
+		return *C;
+	}
+	Array usIntersection(Array& B) {
+		Array* C = new Array(length + B.length);
+		int i, j, k{ 0 }, flag = 1;
+
+		for (i = 0; i < length; i++) {
+			for (int j = 0; j < B.length; j++) {
+				if (A[i] == B.A[j]) {
+					C->A[k++] = A[i];
+				}
+			}
+		}
+		C->length = k;
+		return *C;
+	}
+
+	Array usDeletion(Array& B) {
+		Array* C = new Array(length + B.length);
+		int i, j, k{ 0 }, flag = 1;
+
+
+		for (i = 0; i < length; i++) {
+			flag = 1;
+			for (int j = 0; j < B.length; j++) {
+				if (A[i] == B.A[j]) {
+					flag = 0;
+				}
+			}
+			if (flag == 1) {
+				C->A[k++] = A[i];
+			}
+		}
+		C->length = k;
+		return *C;
 	}
 
 	~Array() {
