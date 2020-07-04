@@ -1,16 +1,18 @@
 #pragma once
 #include<math.h>
 using namespace std;
+
+template <class T>
 class Array
 {
 private:
-	int* A;
+	T* A;
 	int size;
 	int length;
 public:
 	Array(int size) {
 		this->size = size;
-		A = new int[size];
+		A = new T[size];
 	}
 	void create() {
 		cout << "Enter the number of elements, you want to enter : ";
@@ -48,7 +50,8 @@ public:
 		}
 	}
 	void insert() {
-		int index, element;
+		int index;
+		T element;
 		
 		cout << "Enter the index at which you want to add the element : ";
 		cin >> index;
@@ -86,13 +89,14 @@ public:
 	}
 
 	void swap(int i1, int i2) {
-		int temp{ 0 };
+		T temp{ 0 };
 		temp = A[i1];
 		A[i1] = A[i2];
 		A[i2] = temp;
 	}
 	void Lsearch() {
-		int key{ 0 }, i, flag = 1, pos{ 0 };
+		int  i, flag = 1, pos{ 0 };
+		T key{ 0 };
 		cout << "\nEnter the element you want to search : ";
 		cin >> key;
 		for (i = 0; i < length; i++) {
@@ -110,11 +114,12 @@ public:
 	}
 
 	void BinarySearch() {
-		int l{ 0 }, h = length - 1, key{ 0 }, pos{ 0 }, mid{ 0 },flag=1;
+		int l{ 0 }, h = length - 1, pos{ 0 }, mid{ 0 },flag=1;
+		T key{ 0 };
 		cout << "Enter the element you want to search : ";
 		cin >> key;
 		while (l <= h) {
-			mid = floor((l + h) / 2);
+			mid = ((l + h) / 2);
 			if (A[mid] == key) {
 				pos = mid;
 				flag = 0;
@@ -133,7 +138,7 @@ public:
 			cout << "\nElement Not found!"<<endl;
 	}
 
-	int RBinarySearch(int l,int h,int key) {
+	int RBinarySearch(int l,int h,T key) {
 		int mid;
 		mid = floor((l + h) / 2);
 		if (l <= h) {
@@ -162,7 +167,7 @@ public:
 		else
 			return -1;
 	}
-	void setElement(int index, int x) {
+	void setElement(int index, T x) {
 		if (index >= 0 && index < length) {
 			A[index] = x;
 			cout << "\nElement at " << index << " is set to : " << x << endl;
@@ -174,7 +179,7 @@ public:
 	}
 
 	void maxElement() {
-		int max = A[0];
+		T max = A[0];
 		for (int i = 1; i < length; i++) {
 			if (A[i] > max)
 				max = A[i];
@@ -183,7 +188,7 @@ public:
 	}
 
 	void minElement() {
-		int min = A[0];
+		T min = A[0];
 		for (int i = 1; i < length; i++) {
 			if (A[i] < min)
 				min = A[i];
@@ -191,7 +196,7 @@ public:
 		cout << "\nMax Element is : " << min << endl;
 	}
 	void sumElement() {
-		int sum=0;
+		T sum=0;
 		for (int i = 0; i < length; i++) {
 			sum += A[i];
 		}
@@ -205,7 +210,7 @@ public:
 			return RsumElement(n - 1) + A[n];
 	}
 	void avgElement() {
-		int sum = 0;
+		T sum = 0;
 		for (int i = 0; i < length; i++) {
 			sum += A[i];
 		}
@@ -213,7 +218,7 @@ public:
 	}
 
 	void Lrotate() {
-		int temp = A[0];
+		T temp = A[0];
 		for (int i = 0; i < length; i++)
 			A[i] = A[i + 1];
 		A[length - 1] = temp;
@@ -221,7 +226,7 @@ public:
 		display();
 	}
 	void Rrotate() {
-		int temp = A[length-1];
+		T temp = A[length-1];
 		for (int i = length-1; i >= 0; i--)
 			A[i] = A[i - 1];
 		A[0] = temp;
@@ -249,7 +254,8 @@ public:
 			cout << "\nArray is Sorted!!" << endl;
 	}
 	void sInsert() {
-		int j,x;
+		int j;
+		T x;
 		cout << "Enter the element, you want to insert : ";
 		cin >> x;
 		j = length - 1;

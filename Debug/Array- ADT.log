@@ -1,8 +1,43 @@
 ﻿  Array- ADT.cpp
 C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(117,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(138,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(410,10): warning C4101: 'j': unreferenced local variable
-C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(425,10): warning C4101: 'j': unreferenced local variable
-C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(156): warning C4715: 'Array::RBinarySearch': not all control paths return a value
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(431,10): warning C4101: 'j': unreferenced local variable
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(429): message : while compiling class template member function 'Array<T> Array<T>::usDeletion(Array<T> &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(197): message : see reference to function template instantiation 'Array<T> Array<T>::usDeletion(Array<T> &)' being compiled
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(18): message : see reference to class template instantiation 'Array<T>' being compiled
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(239): message : see reference to function template instantiation 'void MainMenu<int>(void)' being compiled
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(416,10): warning C4101: 'j': unreferenced local variable
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(414): message : while compiling class template member function 'Array<T> Array<T>::usIntersection(Array<T> &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(193): message : see reference to function template instantiation 'Array<T> Array<T>::usIntersection(Array<T> &)' being compiled
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(143,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(141): message : while compiling class template member function 'int Array<T>::RBinarySearch(int,int,T)'
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array- ADT.cpp(64): message : see reference to function template instantiation 'int Array<T>::RBinarySearch(int,int,T)' being compiled
+          with
+          [
+              T=int
+          ]
+C:\Users\anmol\source\repos\Array- ADT\Array- ADT\Array.h(161): warning C4715: 'Array<int>::RBinarySearch': not all control paths return a value
   Array- ADT.vcxproj -> C:\Users\anmol\source\repos\Array- ADT\Debug\Array- ADT.exe

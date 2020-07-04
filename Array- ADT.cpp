@@ -8,12 +8,14 @@ struct Choice {
 };
 Choice SetMenu(Choice c);
 int subMenu();
+
+template <typename T>
 void MainMenu() {
 	int n;
 	cout << " ##### Data Structure - Array #### "<<endl<<endl;
 	cout << "Enter the size of the array : ";
 	cin >> n;
-	Array arr(n);
+	Array <T> arr(n);
 	arr.create();
 	
 	int ch;
@@ -54,7 +56,8 @@ void MainMenu() {
 			arr.BinarySearch();
 		}
 		if (ch == 7) {
-			int l{ 0 }, h = arr.getLength() - 1, key{ 0 };
+			int l{ 0 }, h = arr.getLength() - 1;
+			T key{ 0 };
 			cout << "Enter the element you want to search : ";
 			cin >> key;
 			int pos{ 0 };
@@ -81,7 +84,8 @@ void MainMenu() {
 				}
 			}
 			else if (opt == 2) {
-				int index{ 0 }, x{ 0 };
+				int index{ 0 };
+				T x{ 0 };
 				cout << "Enter the index of the element, You want to set : ";
 				cin >> index;
 				cout << "Enter the element : ";
@@ -150,9 +154,9 @@ void MainMenu() {
 			int n;
 			cout << "Enter the size of the array : ";
 			cin >> n;
-			Array arrB(n);
+			Array <T> arrB(n);
 			arrB.create();
-			Array C=arr.Merge(arrB);
+			Array <T> C=arr.Merge(arrB);
 			C.display();
 		}
 		if (ch == 12) {
@@ -160,7 +164,7 @@ void MainMenu() {
 			int n;
 			cout << "\nEnter the size of the Array B : ";
 			cin >> n;
-			Array arrB(n);
+			Array <T> arrB(n);
 			arrB.create();
 
 			Choice ch;
@@ -168,29 +172,29 @@ void MainMenu() {
 
 			if (ch.mainCh == 1) {
 				if (ch.subCh == 1) {
-					Array C = arr.Union(arrB);
+					Array <T> C = arr.Union(arrB);
 					C.display();
 				}
 				else if (ch.subCh == 2) {
-					Array C = arr.Intersection(arrB);
+					Array <T> C = arr.Intersection(arrB);
 					C.display();
 				}
 				else if (ch.subCh == 3) {
-					Array C = arr.Deletion(arrB);
+					Array <T> C = arr.Deletion(arrB);
 					C.display();
 				}
 			}
 			if (ch.mainCh == 2) {
 				if (ch.subCh == 1) {
-					Array C = arr.usUnion(arrB);
+					Array <T> C = arr.usUnion(arrB);
 					C.display();
 				}
 				else if (ch.subCh == 2) {
-					Array C = arr.usIntersection(arrB);
+					Array <T> C = arr.usIntersection(arrB);
 					C.display();
 				}
 				else if (ch.subCh == 3) {
-					Array C = arr.usDeletion(arrB);
+					Array <T> C = arr.usDeletion(arrB);
 					C.display();
 				}
 			}
@@ -229,7 +233,10 @@ int subMenu() {
 }
 
 int main() {
-	MainMenu();
+	string type;
+	cin >> type;
+	cout << typeid(type).name() << endl;
+	MainMenu<int>();
 	
 	return 0;
 }
